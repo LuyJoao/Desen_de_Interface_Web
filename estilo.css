@@ -1,7 +1,37 @@
-.paragrafo_normal{
-    text-align: left;
-}
-
 a{
     text-decoration: none;
+}
+
+body{
+    margin-inline: 250px;
+    text-align: left;
+    border: 1px solid black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+    border: 1px solid black;
+}
+
+.contato{
+    text-align:center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(147, 164, 182);
+}
+
+a:link{
+    color: rgb(0, 127, 255);
+}
+a:visited{
+    color: rgb(160, 32, 240);
+}
+
+a:active{
+    background-color: coral;
 }
