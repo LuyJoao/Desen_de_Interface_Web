@@ -1,21 +1,39 @@
-a{
-    text-decoration: none;
+html{
+    font-size: 62.5%;
 }
 
-body{
-    margin-inline: 250px;
-    text-align: left;
-    border: 1px solid black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Monserrat;
+    font-size: 1em;
 }
 
-h1{
+.foto{
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+}
+
+.infos__cabecalho{
+    display: flex;
+    flex-direction: column; /* Nome e profissão um embaixo do outro */
     text-align: center;
 }
 
-h2{
-    text-align: center;
-    border: 1px solid black;
+.cabecalho{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
 }
 
 .contato{
@@ -23,6 +41,61 @@ h2{
     padding: 10px;
     border-radius: 5px;
     background-color: rgb(147, 164, 182);
+    box-shadow: 5px 5px 10px black;
+}
+
+.curriculo {
+    width: 79.4em;
+    height: 112.3em;
+    margin: 4em auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 100px #706464, 5px 5px 100px #706464;
+}
+
+.curriculo h1{
+    font-size: 3em;
+}
+
+.curriculo h2{
+    font-size: 2em;
+}
+
+.curriculo p{
+    font-size: 1.6em;
+}
+
+.curriculo li{
+    font-size: 1.6em;
+    margin-bottom: 0.5em;
+}
+
+.curriculo ul{
+    list-style-type: none;
+    padding: 0;
+    display: inline-block;
+    text-align: center;
+}
+
+.fundo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+li{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
 }
 
 a:link{
