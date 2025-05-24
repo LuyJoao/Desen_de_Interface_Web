@@ -1,0 +1,62 @@
+html{
+    background-color: blue;
+    font-family: sans-serif;
+    color: black;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+form{
+    width: 90%;
+    min-width: 28.125em;
+    max-width: 35em;
+    background-color: #fff;
+}
+fieldset{
+    border: none;
+    margin: 0;
+    padding: 0 0 40px 30px;
+}
+label, input{
+    display: block;
+    width: 90%;
+}
+input{
+    border: 2px solid transparent;
+    border-bottom-color: black;
+    padding: .75em;
+    margin: .5em 0 2.5em;
+    color: black;
+    outline: 0;
+}
+legend{
+    padding: 1.5em 0 .5em 0;
+    text-align: left;
+    font-weight: lighter;
+    color: black;
+    font-size: 2em;
+}
+.btn{
+    background-color: blue;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    padding: .7em 1.3em;
+    font-size: 1em;
+    border: none;
+}
+.login{
+    font-size: .8em;
+}
+
+.cadastrar {
+    display: flex;
+    align-items: center;
+    gap: 10em;
+    flex-wrap: wrap;
+    margin-top: 1em;
+}
