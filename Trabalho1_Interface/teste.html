@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemoteWork - Trabalho Remoto Eficiente</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #4a6bff;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        nav ul li a:hover {
+            color: #4a6bff;
+        }
+        
+        .dropdown::after {
+            content: '▼';
+            font-size: 10px;
+            margin-left: 5px;
+            color: #666;
+        }
+        
+        .auth-buttons a {
+            margin-left: 15px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .login {
+            color: #333;
+        }
+        
+        .register {
+            background-color: #4a6bff;
+            color: white;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #4a6bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #3a5bef;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            width: 200px;
+        }
+        
+        .feature-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            margin-top: 50px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">RemoteWork</div>
+        <nav>
+            <ul>
+                <li><a href="#">Features <span class="dropdown">▼</span></a></li>
+                <li><a href="#">Company <span class="dropdown">▼</span></a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#" class="login">Login</a>
+            <a href="#" class="register">Register</a>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h1>Make remote work</h1>
+            <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+            <a href="#" class="cta-button">Learn more</a>
+        </section>
+        
+        <section class="features">
+            <div class="feature-item">
+                <input type="checkbox" id="databiz">
+                <label for="databiz">databiz</label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" id="audio">
+                <label for="audio">audio</label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" id="phile">
+                <label for="phile">phile</label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" id="meet">
+                <label for="meet">meet</label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" id="maker">
+                <label for="maker">maker</label>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 RemoteWork. All rights reserved.</p>
+    </footer>
+</body>
+</html>

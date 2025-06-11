@@ -1,0 +1,297 @@
+html {
+    font-size: 62.5%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background-color: #330033;
+    background-image: radial-gradient(circle at 10% 10%, rgba(102, 0, 102, 0.5) 0%, transparent 50%),
+                      radial-gradient(circle at 90% 90%, rgba(102, 0, 102, 0.5) 0%, transparent 50%);
+    background-repeat: no-repeat;
+}
+
+.fundo img {
+    display: none;
+}
+
+.curriculo {
+    width: 100%;
+    max-width: 21cm;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    min-height: 29.7cm;
+    justify-content: flex-start;
+}
+
+.cabecalho-e-contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-bottom: 0.2rem solid black;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.foto {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.3rem solid black;
+    margin-bottom: 1rem;
+}
+
+.infos__cabecalho h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.infos__cabecalho h2 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: #555;
+}
+
+.contato {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(147, 164, 182, 0.5);
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    width: 90%;
+    max-width: 40rem;
+}
+
+.contato p {
+    margin: 0.3rem 0;
+    font-size: 1.4rem;
+}
+
+.contato a {
+    font-size: 1.4rem;
+}
+
+.curriculo-conteudo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.secao h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 0.2rem solid black;
+    padding-bottom: 0.5rem;
+    width: 90%;
+    max-width: 40rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.secao ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 40rem;
+}
+
+.secao p {
+    text-align: center;
+    width: 90%;
+    max-width: 40rem;
+    margin: 0.5rem auto;
+}
+
+.curriculo p, .curriculo li {
+    font-size: 1.6rem;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+li {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: rgb(0, 127, 255);
+}
+a:visited {
+    color: rgb(160, 32, 240);
+}
+a:active {
+    background-color: coral;
+}
+
+@media screen and (min-width: 50em) {
+    body {
+        align-items: center;
+        padding: 0;
+    }
+
+    .curriculo {
+        width: 29.7cm;
+        height: 21cm;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.5rem;
+        overflow: hidden;
+        margin: 4em auto;
+        min-height: auto;
+        justify-content: flex-start;
+    }
+
+    .cabecalho-e-contato {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        border-bottom: 0.2rem solid black;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .cabecalho {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        width: auto;
+        flex-shrink: 0;
+        height: auto;
+        justify-content: flex-start;
+    }
+
+    .foto {
+        width: 12rem;
+        height: 12rem;
+        margin-right: 2.5rem;
+        margin-bottom: 0;
+    }
+
+    .infos__cabecalho {
+        text-align: left;
+    }
+
+    .infos__cabecalho h1 {
+        font-size: 3.2rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .infos__cabecalho h2 {
+        font-size: 2rem;
+    }
+
+    .contato {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        background-color: transparent;
+        text-align: center;
+        width: auto;
+        max-width: none;
+        white-space: nowrap;
+        font-size: 1.4rem;
+        line-height: 1.6;
+    }
+
+    .contato p {
+        margin: 0.2rem 0;
+        font-size: 1.4rem;
+    }
+
+    .contato a {
+        font-size: 1.4rem;
+    }
+
+    .curriculo-conteudo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 4rem;
+        flex-grow: 1;
+        margin-top: 0;
+        height: auto;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .secao {
+        width: 100%;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .secao h2 {
+        font-size: 2.2rem;
+        margin-top: 0;
+        margin-bottom: 0.8rem;
+        border-bottom: 0.1rem solid black;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .secao ul, .secao p {
+        text-align: center;
+        width: 100%;
+        margin: 0.3rem auto;
+    }
+}
