@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercícios em JavaScript</h1>
+
+    <button onclick="ex1()">1. Operações com dois números</button>
+    <button onclick="ex2()">2. Verificação de maioridade</button>
+    <button onclick="ex3()">3. Contador de 1 a N</button>
+    <button onclick="ex4()">4. Soma dos números ímpares</button>
+    <button onclick="ex5()">5. Cálculo do IMC</button>
+    <button onclick="ex6()">6. Número par ou ímpar</button>
+    <button onclick="ex7()">7. Contador regressivo</button>
+    <button onclick="ex8()">8. Média de notas</button>
+    <button onclick="ex9()">9. Maior valor de uma lista</button>
+    <button onclick="ex10()">10. Inversor de palavra</button>
+
+    <script>
+        function ex1() {
+            let a = parseFloat(prompt("Digite o primeiro número:"));
+            let b = parseFloat(prompt("Digite o segundo número:"));
+            if (!isNaN(a) && !isNaN(b)) {
+                alert(`Soma: ${a + b}\nSubtração: ${a - b}\nMultiplicação: ${a * b}\nDivisão: ${a / b}\nResto: ${a % b}`);
+            } else {
+                alert("Valores inválidos!");
+            }
+        }
+
+        function ex2() {
+            let idade = parseInt(prompt("Digite sua idade:"));
+            alert(idade >= 18 ? "Maior de idade." : "Menor de idade.");
+        }
+
+        function ex3() {
+            let n = parseInt(prompt("Digite um número inteiro positivo:"));
+            if (n > 0) {
+                let contagem = "";
+                for (let i = 1; i <= n; i++) {
+                    contagem += i + "\n";
+                }
+                alert(contagem);
+            } else {
+                alert("Número inválido.");
+            }
+        }
+
+        function ex4() {
+            let numeros = [3, 7, 8, 12, 5, 11, 17, 20, 21, 23, 6, 14, 13, 9, 1, 4, 2, 15, 18, 19];
+            let soma = 0;
+            for (let n of numeros) {
+                if (n % 2 !== 0) soma += n;
+            }
+            alert("Soma dos ímpares: " + soma);
+        }
+
+        function ex5() {
+            let peso = parseFloat(prompt("Digite seu peso em kg:"));
+            let altura = parseFloat(prompt("Digite sua altura em metros:"));
+            let imc = peso / (altura * altura);
+            let classificacao = "";
+
+            if (imc < 18.5) classificacao = "Abaixo do peso";
+            else if (imc < 25) classificacao = "Peso normal";
+            else if (imc < 30) classificacao = "Sobrepeso";
+            else classificacao = "Obesidade";
+
+            alert(`Seu IMC é ${imc}\nClassificação: ${classificacao}`);
+        }
+
+        function ex6() {
+            let numero = parseInt(prompt("Digite um número:"));
+            alert(numero % 2 === 0 ? "Par" : "Ímpar");
+        }
+
+        function ex7() {
+            let n = parseInt(prompt("Digite um número:"));
+            let contagem = "";
+            for (let i = n; i >= 0; i--) {
+                contagem += i + "\n";
+            }
+            alert(contagem);
+        }
+
+        function ex8() {
+            let notas = [];
+            for (let i = 1; i <= 4; i++) {
+                notas.push(parseFloat(prompt(`Digite a nota ${i}:`)));
+            }
+            let media = notas.reduce((a, b) => a + b, 0) / 4;
+            alert(`Média: ${media.toFixed(2)}\nResultado: ${media >= 7 ? "Aprovado" : "Reprovado"}`);
+        }
+
+        function ex9() {
+            let lista = [10, 5, 33, 42, 1, 88, 27, 13, 57, 69];
+            let maior = Math.max(...lista);
+            alert("Maior valor da lista: " + maior);
+        }
+
+        function ex10() {
+            let texto = prompt("Digite uma palavra ou frase:");
+            let invertido = texto.split("").reverse().join("");
+            alert("Texto invertido: " + invertido);
+        }
+    </script>
+</body>
+</html>
