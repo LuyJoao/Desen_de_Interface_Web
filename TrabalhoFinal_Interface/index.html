@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Padaria do Luy</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo Padaria do Luy">
+            </a>
+        </div>
+
+        <nav class="menu-links">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="sugestoes.html">Sugestão do chef</a></li>
+            </ul>
+
+        </nav>
+
+        <div class="menu-icones">
+            <a href="cestinha.html">
+                <img src="imagens/cesta.png" class="cestinha" alt="cesta">
+            </a>
+            <a href="login.html">
+                <img src="imagens/perfil.png" class="perfil" alt="perfil">
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-texto">
+            <h1>O sabor da manhã começa aqui ☕</h1>
+            <p>Pães fresquinhos, direto do forno pra sua casa.</p>
+            <a href="produtos.html" class="botao">Ver produtos</a>
+        </div>
+        <img src="imagens/paes.jpg" alt="Pães fresquinhos">
+    </section>
+
+    <section class="beneficios">
+        <h2>Por que escolher a Padaria do Luy?</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="imagens/forno_artesanal.jpg" alt="Forno artesanal">
+                <h3>Receitas artesanais</h3>
+                <p>Feitas com carinho e tradição.</p>
+            </div>
+            <div class="card">
+                <img src="imagens/entrega.png" alt="Entrega rápida">
+                <h3>Entrega quentinha</h3>
+                <p>Seu pedido chega em minutos!</p>
+            </div>
+            <div class="card">
+                <img src="imagens/natural.jpg" alt="Ingredientes naturais">
+                <h3>Ingredientes naturais</h3>
+                <p>Sem conservantes, só qualidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="depoimentos">
+        <h2>O que nossos clientes dizem</h2>
+        <blockquote>
+            "Melhor pão de queijo da cidade! Chega sempre quentinho. 😍" <br>– Samara, cliente fiel
+        </blockquote>
+        <blockquote>
+            "Atendimento excelente e sabor inesquecível!" <br>– Samuel Iaguela
+        </blockquote>
+    </section>
+
+    <section class="contato" id="contato">
+        <h2>Quer receber novidades?</h2>
+        <form id="formulario">
+            <input type="text" name="nome" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu e-mail" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p id="mensagem"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Padaria do Luy. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+<script>
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const nome = this.nome.value.trim();
+        const email = this.email.value.trim();
+        const mensagem = document.getElementById('mensagem');
+        const mensagemFlutuante = document.getElementById('mensagem-flutuante');
+
+        if (nome === "" || email === "") {
+            mensagem.textContent = "Preencha todos os campos!";
+            mensagem.style.color = "red";
+        } else {
+            mensagem.textContent = "";
+            this.reset();
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Login - Padaria do Luy</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo Padaria do Luy">
+            </a>
+        </div>
+
+        <nav class="menu-links">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="sugestoes.html">Sugestão do chef</a></li>
+            </ul>
+
+        </nav>
+
+        <div class="menu-icones">
+            <a href="cestinha.html">
+                <img src="imagens/cesta.png" class="cestinha" alt="cesta">
+            </a>
+            <a href="login.html">
+                <img src="imagens/perfil.png" class="perfil" alt="perfil">
+            </a>
+        </div>
+    </header>
+    <section class="login-card">
+        <h2>🔐 Entrar na Padaria</h2>
+
+        <form id="form-login">
+            <input type="email" placeholder="E-mail" required />
+            <input type="password" placeholder="Senha" required />
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p>Não tem conta? <a href="#" onclick="mostrarCadastro()">Cadastre-se aqui</a></p>
+
+        <form id="form-cadastro" style="display: none;">
+            <input type="text" placeholder="Nome completo" required />
+            <input type="email" placeholder="E-mail" required />
+            <input type="password" placeholder="Senha" required />
+            <button type="submit">Cadastrar</button>
+        </form>
+    </section>
+
+    <script>
+        function mostrarCadastro() {
+            document.getElementById('form-login').style.display = 'none';
+            document.getElementById('form-cadastro').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

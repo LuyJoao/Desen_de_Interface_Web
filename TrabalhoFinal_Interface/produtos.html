@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Produtos - Padaria do Luy</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo Padaria do Luy">
+            </a>
+        </div>
+
+        <nav class="menu-links">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="sugestoes.html">Sugestão do chef</a></li>
+            </ul>
+
+        </nav>
+
+        <div class="menu-icones">
+            <a href="cestinha.html">
+                <img src="imagens/cesta.png" class="cestinha" alt="cesta">
+            </a>
+            <a href="login.html">
+                <img src="imagens/perfil.png" class="perfil" alt="perfil">
+            </a>
+        </div>
+    </header>
+    <div class="produtos-container">
+        <aside class="filtros">
+            <h2>🔍 Buscar Produto</h2>
+            <input type="text" id="pesquisa" placeholder="Ex: Pão de queijo" />
+        </aside>
+
+        <section class="produtos">
+            <div class="card-produto">
+                <img src="imagens/pao_de_queijo.jpg" alt="Pão de Queijo" />
+                <h3>Pão de Queijo</h3>
+                <p>R$ 4,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/pao_fatiado.jpg" alt="Pao Fatiado" />
+                <h3>Pão Fatiado</h3>
+                <p>R$ 8,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/bolo.png" alt="Bolo de Chocolate" />
+                <h3>Bolo de chocolate</h3>
+                <p>R$ 10,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/donuts.png" alt="Donuts" />
+                <h3>Donuts</h3>
+                <p>R$ 10,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/cafe.png" alt="Café" />
+                <h3>Café</h3>
+                <p>R$ 5,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/pastel.png" alt="Pastel" />
+                <h3>Pastel</h3>
+                <p>R$ 6,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/pao_frances.jpg" alt="Pão Frances" />
+                <h3>Pão Frances</h3>
+                <p>R$ 10,00 Kg</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/croissant.png" alt="Croissant" />
+                <h3>Croissant</h3>
+                <p>R$ 7,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/suco.png" alt="Suco" />
+                <h3>Suco</h3>
+                <p>R$ 5,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img src="imagens/capuccino.png" alt="Capuccino" />
+                <h3>Capuccino</h3>
+                <p>R$ 7,00</p>
+                <button>Comprar</button>
+            </div>
+        </section>
+    </div>
+</body>
+
+<footer>
+    <p>&copy; 2025 Padaria do Luy. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    const inputPesquisa = document.getElementById('pesquisa');
+    const cards = document.querySelectorAll('.card-produto');
+
+    function removerAcentos(texto) {
+        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    }
+
+    inputPesquisa.addEventListener('input', function () {
+        const termo = removerAcentos(this.value);
+
+        cards.forEach(card => {
+            const nomeProduto = removerAcentos(card.querySelector('h3').textContent);
+            card.style.display = nomeProduto.includes(termo) ? 'block' : 'none';
+        });
+    });
+
+    document.querySelectorAll(".card-produto button").forEach(botao => {
+        botao.addEventListener("click", function () {
+            const card = this.closest(".card-produto");
+            if (!card) {
+                return;
+            }
+
+            const nomeElement = card.querySelector("h3");
+            const nome = nomeElement ? nomeElement.textContent : "Nome Desconhecido";
+
+            const precoText = card.querySelector("p").textContent;
+            let preco = parseFloat(precoText.replace("R$", "").replace("Kg", "").replace(",", "."));
+
+            if (isNaN(preco)) {
+                return;
+            }
+
+            let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+            const itemExistente = carrinho.find(item => item.nome === nome);
+            if (itemExistente) {
+                itemExistente.quantidade++;
+            } else {
+                carrinho.push({ nome, preco, quantidade: 1 });
+            }
+
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            alert(`"${nome}" adicionado à cesta!`);
+        });
+    });
+</script>
+
+</html>

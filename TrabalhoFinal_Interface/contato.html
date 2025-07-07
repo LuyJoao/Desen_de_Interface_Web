@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Contato - Padaria do Luy</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo Padaria do Luy">
+            </a>
+        </div>
+
+        <nav class="menu-links">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="sugestoes.html">Sugestão do chef</a></li>
+            </ul>
+
+        </nav>
+
+        <div class="menu-icones">
+            <a href="cestinha.html">
+                <img src="imagens/cesta.png" class="cestinha" alt="cesta">
+            </a>
+            <a href="login.html">
+                <img src="imagens/perfil.png" class="perfil" alt="perfil">
+            </a>
+        </div>
+    </header>
+
+    <section class="contato">
+        <h2>📨 Fale com a gente</h2>
+        <form id="formulario">
+            <input type="text" name="nome" placeholder="Seu nome" required />
+            <input type="email" name="email" placeholder="Seu email" required />
+            <textarea name="mensagem" rows="5" placeholder="Escreva sua mensagem..."></textarea>
+            <button type="submit">Enviar</button>
+            <p id="mensagem" class="mensagem-feedback"></p>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('formulario').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nome = this.nome.value.trim();
+            const email = this.email.value.trim();
+            const mensagem = document.getElementById('mensagem');
+
+            if (nome === "" || email === "") {
+                mensagem.textContent = "Preencha todos os campos!";
+                mensagem.style.color = "red";
+            } else {
+                mensagem.textContent = "Mensagem enviada com sucesso!"; // Alterado de "Cadastro" para "Mensagem"
+                mensagem.style.color = "green";
+                this.reset();
+            }
+        });
+    </script>
+</body>
+
+<footer>
+    <p>&copy; 2025 Padaria do Luy. Todos os direitos reservados.</p>
+</footer>
+
+</html>

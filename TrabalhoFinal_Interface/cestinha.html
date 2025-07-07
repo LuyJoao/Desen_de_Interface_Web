@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cestinha - Padaria do Luy</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo Padaria do Luy">
+            </a>
+        </div>
+
+        <nav class="menu-links">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="sugestoes.html">Sugestão do chef</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-icones">
+            <a href="cestinha.html">
+                <img src="imagens/cesta.png" class="cestinha" alt="cesta">
+            </a>
+            <a href="login.html">
+                <img src="imagens/perfil.png" class="perfil" alt="perfil">
+            </a>
+        </div>
+    </header>
+
+    <section class="cestinha">
+        <h2>🛒 Minha Cestinha</h2>
+        <div id="itens-carrinho">
+        </div>
+        <div class="total">
+            <p>Total: R$ <span id="valor-total">0,00</span></p>
+            <button id="finalizar">Finalizar Pedido</button>
+        </div>
+    </section>
+
+    <script>
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+        const container = document.getElementById('itens-carrinho');
+        const totalSpan = document.getElementById('valor-total');
+        const botaoFinalizar = document.getElementById('finalizar');
+
+        function atualizarCarrinho() {
+            container.innerHTML = '';
+            let total = 0;
+
+            if (carrinho.length === 0) {
+                container.innerHTML = '<p>Sua cestinha está vazia.</p>';
+            } else {
+                carrinho.forEach((item, index) => {
+                    const linha = document.createElement('div');
+                    linha.className = 'item-carrinho';
+                    linha.innerHTML = `
+                        <p><strong>${item.nome}</strong></p>
+                        <p>Quantidade: ${item.quantidade}</p>
+                        <p>Preço: R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}</p>
+                        <button onclick="removerItem(${index})" class="botao-remover">🗑️</button>
+                        <hr>
+                    `;
+                    container.appendChild(linha);
+                    total += item.preco * item.quantidade;
+                });
+            }
+
+            totalSpan.textContent = total.toFixed(2).replace('.', ',');
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        }
+
+        function removerItem(index) {
+            carrinho.splice(index, 1);
+            atualizarCarrinho();
+        }
+
+        botaoFinalizar.addEventListener('click', () => {
+            if (carrinho.length > 0) {
+                alert('Pedido finalizado com sucesso!');
+                carrinho = [];
+                atualizarCarrinho();
+            } else {
+                alert('Sua cesta está vazia!');
+            }
+        });
+
+        atualizarCarrinho();
+    </script>
+
+</body>
+
+<footer>
+    <p>&copy; 2025 Padaria do Luy. Todos os direitos reservados.</p>
+</footer>
+
+</html>

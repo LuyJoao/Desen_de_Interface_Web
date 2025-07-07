@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sugestões do Chef - Padaria do Luy</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagens/logo.png" alt="Logo Padaria do Luy">
+            </a>
+        </div>
+
+        <nav class="menu-links">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="sugestoes.html">Sugestão do chef</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-icones">
+            <a href="cestinha.html">
+                <img src="imagens/cesta.png" class="cestinha" alt="cesta">
+            </a>
+            <a href="login.html">
+                <img src="imagens/perfil.png" class="perfil" alt="perfil">
+            </a>
+        </div>
+    </header>
+
+    <section class="chef">
+        <h2>👨‍🍳 Sugestões do Chef</h2>
+        <p class="chef-subtitulo">Combinações deliciosas com desconto especial!</p>
+
+        <div class="combos">
+            <div class="combo-card">
+                <img src="imagens/cafe com pao de queijo.png" alt="Combo Café + Pão de Queijo" />
+                <h3>Combo Manhã</h3>
+                <p>Perfeito para começar o dia com energia.</p>
+                <p class="preco">R$ 7,50</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="combo-card">
+                <img src="imagens/pastel e suco.png" alt="Combo Pastel + Suco" />
+                <h3>Combo Brasil</h3>
+                <p>Melhore sua tarde com essa dupla deliciosa.</p>
+                <p class="preco">R$ 10,00</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="combo-card">
+                <img src="imagens/croissant e capuccino.png" alt="Combo Croissant + Cappuccino" />
+                <h3>Combo Paris</h3>
+                <p>Sofisticação e sabor em um só combo.</p>
+                <p class="preco">R$ 7,00</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    document.querySelectorAll(".combo-card button").forEach(botao => {
+        botao.addEventListener("click", function() {
+            const card = this.closest(".combo-card");
+
+            if (!card) {
+                return;
+            }
+
+            const nomeElement = card.querySelector("h3");
+            const nome = nomeElement ? nomeElement.textContent : "Nome Desconhecido";
+
+            const precoElement = card.querySelector(".preco");
+            let preco = 0;
+            if (precoElement) {
+                preco = parseFloat(precoElement.textContent.replace("R$", "").replace(",", "."));
+            }
+
+            if (isNaN(preco)) {
+                return;
+            }
+
+            let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+            const itemExistente = carrinho.find(item => item.nome === nome);
+            if (itemExistente) {
+                itemExistente.quantidade++;
+            } else {
+                carrinho.push({ nome, preco, quantidade: 1 });
+            }
+
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            alert(`"${nome}" adicionado à cesta!`);
+        });
+    });
+</script>
+
+<footer>
+    <p>&copy; 2025 Padaria do Luy. Todos os direitos reservados.</p>
+</footer>
+
+</html>
