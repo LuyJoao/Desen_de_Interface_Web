@@ -27,6 +27,7 @@
         </nav>
 
         <div class="menu-icones">
+            <button id="modo-escuro-toggle">🌙</button>
             <a href="cestinha.html">
                 <img src="imagens/cesta.png" class="cestinha" alt="cesta">
             </a>
@@ -59,6 +60,20 @@
             document.getElementById('form-login').style.display = 'none';
             document.getElementById('form-cadastro').style.display = 'block';
         }
+        const botao = document.getElementById('modo-escuro-toggle');
+        const corpo = document.body;
+
+        if (localStorage.getItem('modoEscuro') === 'true') {
+            corpo.classList.add('modo-escuro');
+            botao.textContent = '☀️';
+        }
+
+        botao.addEventListener('click', () => {
+            corpo.classList.toggle('modo-escuro');
+            const estaEscuro = corpo.classList.contains('modo-escuro');
+            botao.textContent = estaEscuro ? '☀️' : '🌙';
+            localStorage.setItem('modoEscuro', estaEscuro);
+        });
     </script>
 </body>
 

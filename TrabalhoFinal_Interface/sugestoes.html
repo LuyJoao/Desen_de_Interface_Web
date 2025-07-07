@@ -26,6 +26,7 @@
         </nav>
 
         <div class="menu-icones">
+            <button id="modo-escuro-toggle">🌙</button>
             <a href="cestinha.html">
                 <img src="imagens/cesta.png" class="cestinha" alt="cesta">
             </a>
@@ -69,7 +70,7 @@
 
 <script>
     document.querySelectorAll(".combo-card button").forEach(botao => {
-        botao.addEventListener("click", function() {
+        botao.addEventListener("click", function () {
             const card = this.closest(".combo-card");
 
             if (!card) {
@@ -101,6 +102,20 @@
             localStorage.setItem("carrinho", JSON.stringify(carrinho));
             alert(`"${nome}" adicionado à cesta!`);
         });
+    });
+    const botao = document.getElementById('modo-escuro-toggle');
+    const corpo = document.body;
+
+    if (localStorage.getItem('modoEscuro') === 'true') {
+        corpo.classList.add('modo-escuro');
+        botao.textContent = '☀️';
+    }
+
+    botao.addEventListener('click', () => {
+        corpo.classList.toggle('modo-escuro');
+        const estaEscuro = corpo.classList.contains('modo-escuro');
+        botao.textContent = estaEscuro ? '☀️' : '🌙';
+        localStorage.setItem('modoEscuro', estaEscuro);
     });
 </script>
 

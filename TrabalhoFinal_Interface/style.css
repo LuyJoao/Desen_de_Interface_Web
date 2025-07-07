@@ -712,3 +712,32 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+body.modo-escuro {
+    background-color: #121212;
+    color: #8d39cc;
+}
+
+body.modo-escuro header,
+body.modo-escuro footer {
+    background-color: #1e1e1e;
+}
+
+body.modo-escuro .card,
+body.modo-escuro .card-produto,
+body.modo-escuro .combo-card,
+body.modo-escuro .login-card,
+body.modo-escuro .contato {
+    background-color: #1c1c1c;
+    color: #8d39cc;
+    border: 1px solid #333;
+}
+
+#modo-escuro-toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    color: #8d39cc;
+}
